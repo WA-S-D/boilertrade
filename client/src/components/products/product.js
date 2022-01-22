@@ -32,6 +32,9 @@ const Product = ({product}) => {
           <Typography gutterBottom variant="h5" component="h2">
             {product.name}
           </Typography>
+          <Typography gutterBottom variant="h5" component="h2">
+            {product.email}
+          </Typography>
         </div>
         <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
       </CardContent>

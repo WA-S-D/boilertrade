@@ -24,6 +24,7 @@ class Dashboard extends Component {
     withCredentials: true
   })
   .then((response) => {
+    console.log(response.data);
     this.setState({ images: response.data});
   })
   }

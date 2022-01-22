@@ -12,7 +12,8 @@ class UploadFile extends Component {
       this.state = {
         selectedFile: null,
         desc: null,
-        name: null
+        name: null,
+        email: null
       }
   }
 
@@ -28,6 +29,7 @@ class UploadFile extends Component {
     data.append('image', this.state.selectedFile)
     data.append('name', this.state.name)
     data.append('desc', this.state.desc)
+    data.append('email', this.state.email)
     axios.post("http://localhost:5000/post", data, { 
   
     })
@@ -49,6 +51,15 @@ class UploadFile extends Component {
             <h4>Upload Your Product!</h4>
             <Form>
             <Form.Group>
+                <Form.Label>Your Email:</Form.Label>
+                <Form.Control type="text" 
+                              id="email"
+                              name="email"
+                              placeholder="Enter your your email address" 
+                              required
+                              onChange={(e) => this.setState( { email: e.target.value })}/>
+              </Form.Group>
+            <Form.Group>
                 <Form.Label>Name of your product:</Form.Label>
                 <Form.Control type="text" 
                               placeholder="Enter your full name" 
@@ -62,7 +73,7 @@ class UploadFile extends Component {
                 <Form.Control type="text" 
                               id="desc"
                               name="desc"
-                              placeholder="Enter your your email address" 
+                              placeholder="Descriptoin" 
                               required
                               onChange={(e) => this.setState( { desc: e.target.value })}/>
               </Form.Group>
