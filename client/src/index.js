@@ -5,6 +5,7 @@ import App from './App';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import reportWebVitals from './reportWebVitals';
+import UploadFile from './components/UploadFile';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/upload" element={<UploadFile />}/>
       </Routes>
     </Router>
   </React.StrictMode>,

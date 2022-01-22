@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import useState from 'react-hook-use-state';
 import axios from 'axios';
 import react, { Component } from 'react';
