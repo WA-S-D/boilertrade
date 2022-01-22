@@ -24,7 +24,6 @@ class Dashboard extends Component {
     withCredentials: true
   })
   .then((response) => {
-    console.log(response.data);
     this.setState({ images: response.data});
   })
   }
@@ -44,7 +43,7 @@ class Dashboard extends Component {
   render () {
     const { images } = this.state
     return images.length ? this.renderImages() : (
-      <span>Loading wells...</span>
+      <span>Loading Products...</span>
     )
   }  
 }
