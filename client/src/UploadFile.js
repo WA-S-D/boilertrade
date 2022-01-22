@@ -4,7 +4,7 @@ import useState from 'react-hook-use-state';
 import axios from 'axios';
 import react, { Component } from 'react';
 
-class App extends Component {
+class UploadFile extends Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class App extends Component {
 
   render() {
   return (
-    <div className="App">
+    <div className="UploadFile">
       <h1>Upload to server</h1>
       <div>
         <div>
@@ -66,4 +66,4 @@ class App extends Component {
   }
 };
 
-export default App;
+export default UploadFile;
