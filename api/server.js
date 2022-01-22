@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./models/user.model');
+const jwt = require('jsonwebtoken');
 
 var fs = require('fs');
 var path = require('path');
@@ -53,19 +54,25 @@ var upload = multer({ storage: storage });
 
 var imgModel = require('./models/image.model.js');
 
+function generateToken(user) {
+    return jwt.sign({ data: user }, process.env.TOCKEN_SECRET || "", { expiresIn: 60 * 60 * 10 })
+}
+
 app.post('/login', async function (req, res) {
-    User.findOne({ email: req.body.email })
+    User.findOne({ email: req.body.user.email })
     .then(async user => {
-      if (!user) {
-        const newUser = new User({ email: req.body.email })
-        newUser.save()
-        .then(user => {
-            res.status(200).json({ "succes": "hi" })
-          })
-          .catch(error => {
-            res.status(500).json(error)
-          })
-      }
+        if (!user) {
+            const newUser = new User({ email: req.body.user.email })
+            newUser.save()
+            .then(user => {
+                res.status(200).json({ token: generateToken(user)})
+            })
+            .catch(error => {
+                res.status(500).json(error)
+            })
+        } else {
+            res.status(200).json({ token: generateToken(user)})
+        }
     })
 });
 
