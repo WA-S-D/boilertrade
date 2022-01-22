@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { RiHomeLine, RiFileCopyLine } from "react-icons/ri";
 import { FaWallet } from "react-icons/fa";
-import { AiOutlinePieChart } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import Badge from "./Badge";
 // import AvatarImage from "../assets/avatarImage.jpeg";
 // import { darkThemeColor } from "../utils";
@@ -11,32 +11,25 @@ function Sidebar() {
     <Container>
       <ProfileContainer>
         {/* <Avatar src={AvatarImage} /> */}
-        <Name>Kishan Sheth</Name>
-        <Badge content="Pro Level" />
+        <Name>Boiler Trade</Name>
+        {/* <Badge content="Pro Level" /> */}
       </ProfileContainer>
       <LinksContainer>
         <Links>
           <Link>
-            <RiHomeLine />
-            <h3>Dashboard</h3>
+           
+            <h3>Search</h3>
           </Link>
           <Link>
-            <RiFileCopyLine />
-            <h3>Projects</h3>
+            
+            <h3>Trade</h3>
           </Link>
           <Link>
-            <FaWallet />
-            <h3>Invoices</h3>
-          </Link>
-          <Link>
-            <AiOutlinePieChart />
-            <h3>Reports</h3>
+            
+            <h3>Messages</h3>
           </Link>
         </Links>
-        <ContactContainer>
-          <span>Having troubles?</span>
-          <a href="#">Contact us </a>
-        </ContactContainer>
+        
       </LinksContainer>
     </Container>
   );
@@ -46,7 +39,7 @@ const Container = styled.div`
   width: 20%;
   height: 100% !important;
   border-radius: 2rem;
-  background-color: #091322;
+  background-color: #2E4DD4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,13 +65,13 @@ const Avatar = styled.img`
 
 const Name = styled.h1`
   color: white;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0.8rem 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.5rem 0;
 `;
 
 const LinksContainer = styled.div`
-  background-color: #FFFFFF;
+  background-color: #2E4DD4;
   height: 100%;
   width: 100%;
   border-radius: 2rem;
@@ -97,7 +90,7 @@ const Link = styled.li`
   margin-bottom: 2rem;
   display: flex;
   gap: 1rem;
-  color: #e4e4e4;
+  color: #707070;
   cursor: pointer;
   h3 {
     font-weight: 300;

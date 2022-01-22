@@ -14,26 +14,21 @@ function MainContent() {
       <Navbar />
       <SubContainer>
         <SectionOne>
-          <ColumnOne1>
-            <Earnings />
-            <Info />
-          </ColumnOne1>
+         
           <ColumnTwo1>
-            <TitleText>Your Projects</TitleText>
-            <Projects />
+            <TitleText>Items</TitleText>
+        
           </ColumnTwo1>
         </SectionOne>
         <SectionTwo>
           <ColumnOne2>
             <InvoiceContainer>
-              <TitleText>Recent Invoices</TitleText>
-              <Invoices />
+            
             </InvoiceContainer>
-            <JoinSlack />
+          
           </ColumnOne2>
           <ColumnTwo2>
-            <TitleText>Recommended Project</TitleText>
-            <ProjectRecommendation />
+           
           </ColumnTwo2>
         </SectionTwo>
       </SubContainer>

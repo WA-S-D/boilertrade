@@ -1,19 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import AvatarImage from "../assets/avatarImage5.jpg";
+
+
 function Navbar() {
   return (
     <NavbarContainer>
       <Text>
-        Good morning,
-        <span> Kishan</span>
+        Search Boiler Trade
       </Text>
-      <InputContainer>
-        <Icon>
-          <FiSearch />
-        </Icon>
-        <Input type="text" placeholder="Search for projects" />
-      </InputContainer>
+      <Avatar>
+        <img src={AvatarImage} alt="" />
+        <span> logout </span>
+      </Avatar>
+      
+
     </NavbarContainer>
   );
 }
@@ -22,6 +24,7 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #2E4765;
   height: 10%;
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     flex-direction: column;
@@ -65,6 +68,14 @@ const Input = styled.input`
   &:focus {
     border: none;
     outline: none;
+  }
+`;
+
+const Avatar = styled.div`
+  img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 3.5rem;
   }
 `;
 
