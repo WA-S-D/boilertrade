@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
   
 var imageSchema = new Schema({
+    email: String,
     name: String,
     desc: String,
     img:
