@@ -12,7 +12,15 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+//we need to add our future domain here
+const allowedOrigins = ['http://localhost:3000'];
+
+const options = {
+  origin: allowedOrigins,
+  credentials: true
+};
+
+app.use(cors(options));
 app.use(express.json());
 
 mongoose.connect(process.env.ATLAS_URI || "");
