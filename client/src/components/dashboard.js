@@ -3,6 +3,7 @@ import Product from './products/product';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import { Component } from 'react';
+import './dashboard.css';
 
 
 
@@ -31,13 +32,16 @@ class Dashboard extends Component {
 
   renderImages() {
     return (
-      <Grid container justify="center" spacing={4}>
-        { this.state.images.map((image) => (
-          <Grid item key={image._id} xs={12} sm={6} md={2} lg={4}>
-            <Product product={image}></Product>
-          </Grid>
-        ))}
-      </Grid>
+      <div className='scrollable-block'>
+        <Grid container justify="center" spacing={4}>
+          { this.state.images.map((image) => (
+            <Grid item key={image._id} xs={12} sm={6} md={2} lg={4}>
+              <Product product={image}></Product>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+      
     )
   }
 
