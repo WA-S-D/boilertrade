@@ -27,26 +27,13 @@ const Login = () => {
         .then(res => {
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', user.email);
-          window.location.href = "/";
+          window.location.href = "/dash";
           // window.location.reload();
         })
     }
   }
 
-  const logout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
-
-  if (localStorage.getItem('user')) {
-    return (
-      <>
-      <h1>Logout!</h1>
-      <button onClick={logout}>logout</button>
-      </>
-    )
-  }
+  
 
   return (
     <Container>
