@@ -2,6 +2,8 @@ import '../App.css';
 import useState from 'react-hook-use-state';
 import axios from 'axios';
 import react, { Component } from 'react';
+import './upload.css';
+import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
 class UploadFile extends Component {
 
@@ -36,31 +38,57 @@ class UploadFile extends Component {
 
   render() {
   return (
-    <div className="UploadFile">
-      <h1>Upload to server</h1>
-      <div>
-        <div>
-            <label for="name">Image Title</label>
-            <input type="test" id="name" placeholder="Name" defaultValue="" name="name" required onChange={(e) => this.setState( { name: e.target.value })}>
-
-            </input>
-          </div>
-          <div>
-            <label for ="desc">Image Description</label>
-            <textarea id="desc" name="desc" defaultValue="" rows="2" placeholder="Description" required onChange={(e) => this.setState( { desc: e.target.value })}>
-
-            </textarea>
-          </div>
-          <div>
-          <label for="image">Upload Image</label>
-          <input type="file" id="image"
-            name="image" value="" required onChange={this.onChangeHandler}></input>
-          </div>
-          <div>
-            <button type="submit" onClick={this.onClickHandler}>Submit</button>
-          </div>
-      </div>
-    </div>
+    // <div style={{ display: 'block', 
+    //               width: 700, 
+    //               padding: 30 }}>
+    <>
+      <Container fluid>
+        <Row>
+          <Col md="2" />
+          <Col md="8">
+            <h4>Upload Your Product!</h4>
+            <Form>
+            <Form.Group>
+                <Form.Label>Name of your product:</Form.Label>
+                <Form.Control type="text" 
+                              placeholder="Enter your full name" 
+                              id="name"
+                              name="name"
+                              required
+                              onChange={(e) => this.setState( { name: e.target.value })}/>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Description of you product:</Form.Label>
+                <Form.Control type="text" 
+                              id="desc"
+                              name="desc"
+                              placeholder="Enter your your email address" 
+                              required
+                              onChange={(e) => this.setState( { desc: e.target.value })}/>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Upload Image</Form.Label>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  value=""
+                  // required
+                  onChange={this.onChangeHandler}>
+                </input>
+              </Form.Group>
+              <div className="submit-button">
+                <Button variant="primary" type="submit" onClick={this.onClickHandler}>
+                  Click here to submit form
+                </Button>
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+      
+    </>
+    // </div>
   );
   }
 };
