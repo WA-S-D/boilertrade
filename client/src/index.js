@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import UploadFile from './components/UploadFile';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Dash from "./components/dashboard2";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route path="/login" element={<Login />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/upload" element={<UploadFile />}/>
+        <Route path="/dash" element={<Dash />}/>
       </Routes>
     </Router>
   </React.StrictMode>,
