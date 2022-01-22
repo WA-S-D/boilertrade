@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const User = require('./models/user.model');
 
 require('dotenv').config();
 
@@ -17,5 +18,14 @@ connection.once('open', () => {
     console.log("MongoDB database successfully connected!");  
 });
 
+app.post('/login', function (req, res) {
+    User.findOne({ email: req.body.user.email })
+    .then(async user => {
+      if (!user) {
+        const newUser = new User({ email: req.body.user.email })
+        newUser.save()
+      }
+  })
+});
 
 app.listen(port);

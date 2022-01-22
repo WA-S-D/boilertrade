@@ -3,21 +3,12 @@ const mongoose  = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema  = new Schema({
-    username: {
+    email: {
         type: String,
         required: true,
         trim: true,
         unique: true,
-        minlength: 3
-    },
-    password: {
-        type: String,
-        required: true,
-        trime: true,
-        minlength: 3
     }
-}, {
-    timestamps: true,
 });
 
 const User = mongoose.model('User', userSchema);
