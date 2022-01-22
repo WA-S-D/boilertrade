@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const User = require('./models/user.model');
 
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ connection.once('open', () => {
     console.log("MongoDB database successfully connected!");  
 });
 
+<<<<<<< HEAD
 app.listen(port, () => {
     console.log("Server running...");
 });
@@ -40,6 +42,17 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 var imgModel = require('./model');
+=======
+app.post('/login', function (req, res) {
+    User.findOne({ email: req.body.user.email })
+    .then(async user => {
+      if (!user) {
+        const newUser = new User({ email: req.body.user.email })
+        newUser.save()
+      }
+  })
+});
+>>>>>>> e5328198c69b99f033572742ba3707879847ec9a
 
 app.get('/', (req, res) => {
     imgModel.find({}, (err, items) => {
