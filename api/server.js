@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const User = require('./models/user.model');
 
 require('dotenv').config();
@@ -31,7 +32,7 @@ var multer = require('multer');
   
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads')
+        cb(null, 'image-uploads')
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now())
@@ -40,7 +41,7 @@ var storage = multer.diskStorage({
   
 var upload = multer({ storage: storage });
 
-var imgModel = require('./model');
+var imgModel = require('./models/image.model.js');
 
 app.post('/login', function (req, res) {
     User.findOne({ email: req.body.user.email })
@@ -65,12 +66,11 @@ app.get('/post', (req, res) => {
 });
 
 app.post('/post', upload.single('image'), (req, res, next) => {
-  
     var obj = {
         name: req.body.name,
         desc: req.body.desc,
         img: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            data: fs.readFileSync(path.join(__dirname + '/image-uploads/' + req.file.filename)),
             contentType: 'image/png'
         }
     }
