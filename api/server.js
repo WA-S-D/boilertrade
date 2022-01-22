@@ -12,12 +12,11 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true } );
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database successfully connected!");  
-});
+mongoose.connect(process.env.ATLAS_URI || "");
+const db = mongoose.connection;
+
+db.on("error", (err) => { console.error(err) })
+db.once("open", () => { console.log("DB started successfully") })
 
 app.listen(port, () => {
     console.log("Server running...");
@@ -43,14 +42,20 @@ var upload = multer({ storage: storage });
 
 var imgModel = require('./models/image.model.js');
 
-app.post('/login', function (req, res) {
-    User.findOne({ email: req.body.user.email })
+app.post('/login', async function (req, res) {
+    User.findOne({ email: req.body.email })
     .then(async user => {
       if (!user) {
-        const newUser = new User({ email: req.body.user.email })
+        const newUser = new User({ email: req.body.email })
         newUser.save()
+        .then(user => {
+            res.status(200).json({ "succes": "hi" })
+          })
+          .catch(error => {
+            res.status(500).json(error)
+          })
       }
-  })
+    })
 });
 
 app.get('/post', (req, res) => {
