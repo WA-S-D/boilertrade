@@ -71,9 +71,11 @@ const Login = () => {
             <Stack gap={1} className="col-md-4 mx-auto">
               <div className= "welcome-text">Welcome Back!</div>
               <div className= "signup-text">Login or Sign Up to continue</div>
-              <GoogleButton className="login-button"
-                onClick={() => { login(googleProvider) }}
-              />
+              <div className="button">
+                <GoogleButton className="login-button"
+                  onClick={() => { login(googleProvider) }}
+                />
+              </div>
             </Stack>
           </div>
         </Col>
