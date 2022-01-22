@@ -18,7 +18,6 @@ connection.once('open', () => {
     console.log("MongoDB database successfully connected!");  
 });
 
-<<<<<<< HEAD
 app.listen(port, () => {
     console.log("Server running...");
 });
@@ -42,7 +41,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 var imgModel = require('./model');
-=======
+
 app.post('/login', function (req, res) {
     User.findOne({ email: req.body.user.email })
     .then(async user => {
@@ -52,9 +51,8 @@ app.post('/login', function (req, res) {
       }
   })
 });
->>>>>>> e5328198c69b99f033572742ba3707879847ec9a
 
-app.get('/', (req, res) => {
+app.get('/post', (req, res) => {
     imgModel.find({}, (err, items) => {
         if (err) {
             console.log(err);
@@ -62,6 +60,27 @@ app.get('/', (req, res) => {
         }
         else {
             res.render('imagesPage', { items: items });
+        }
+    });
+});
+
+app.post('/post', upload.single('image'), (req, res, next) => {
+  
+    var obj = {
+        name: req.body.name,
+        desc: req.body.desc,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            contentType: 'image/png'
+        }
+    }
+    imgModel.create(obj, (err, item) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // item.save();
+            res.redirect('/post');
         }
     });
 });
