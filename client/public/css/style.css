@@ -76,7 +76,8 @@ hr {
   transition: all 0.8s;
 }
 #menu.navbar-default {
-  background-color: #fff;
+  background-color: transparent;
+  color: #000;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
@@ -84,13 +85,23 @@ hr {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: #fff;
   text-transform: uppercase;
 }
+
+#menu a.navbar-brand-green {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #43ED9C;
+  text-transform: uppercase;
+}
+
+
 #menu.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
-  color: #555;
+  color: #fff;
   font-size: 15px;
   font-weight: 400;
   padding: 8px 2px;
@@ -165,9 +176,10 @@ hr {
 .btn-custom {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
-  color: #fff;
-  background-color: #5ca9fb;
-  background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  color: #000;
+  background-color: #43ED9C;
+  background-image: #43ED9C;
+  /* background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%); */
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -208,7 +220,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/intro-bg.jpg) center center no-repeat;
+  background: url(../img/landing.png) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -243,21 +255,22 @@ header .intro-text {
   padding-top: 350px;
   padding-bottom: 200px;
   text-align: center;
+  color: transparent;
 }
 /* Features Section */
 #features {
-  background: #f6f6f6;
+  background: #43ED9C;
 }
 #features i.fa {
   font-size: 38px;
   margin-bottom: 20px;
   transition: all 0.5s;
-  color: #fff;
+  color: #000;
   width: 100px;
   height: 100px;
   padding: 30px 0;
   border-radius: 50%;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: #43ED9C;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 /* About Section */
@@ -450,18 +463,18 @@ header .intro-text {
   width: 240px;
 }
 #team .thumbnail {
-  background: transparent;
+  background: #FFF;
   border: 0;
 }
 #team .thumbnail .caption {
   padding: 10px 0 0;
-  color: #888;
+  color: #FFF;
 }
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
-  color: rgba(255, 255, 255, 0.75);
+  color: #fff;
 }
 #contact .section-title {
   margin-bottom: 40px;
@@ -478,7 +491,7 @@ header .intro-text {
 #contact .section-title h2::after {
   position: absolute;
   content: "";
-  background: rgba(255, 255, 255, 0.3);
+  background: #fff;
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -519,10 +532,10 @@ label {
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1.42857143;
-  color: #444;
+  color: #fff;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -531,28 +544,28 @@ label {
   transition: none;
 }
 #contact .form-control:focus {
-  border-color: #999;
+  border-color: #FFF;
   outline: 0;
   -webkit-box-shadow: transparent;
   box-shadow: transparent;
 }
 .form-control::-webkit-input-placeholder {
-  color: #777;
+  color: #fff;
 }
 .form-control:-moz-placeholder {
-  color: #777;
+  color: #fff;
 }
 .form-control::-moz-placeholder {
-  color: #777;
+  color: #fff;
 }
 .form-control:-ms-input-placeholder {
-  color: #777;
+  color: #fff;
 }
 #contact .contact-item {
   margin: 20px 0;
 }
 #contact .contact-item span {
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   margin-bottom: 10px;
   display: block;
 }
@@ -560,7 +573,7 @@ label {
   margin-right: 10px;
 }
 #contact .social {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #fff;
   padding-top: 50px;
   margin-top: 50px;
   text-align: center;
@@ -585,11 +598,11 @@ label {
 }
 /* Footer Section*/
 #footer {
-  background: #f6f6f6;
+  background: #fff;
   padding: 30px 0;
 }
 #footer p {
-  color: #888;
+  color: #fff;
   font-size: 14px;
 }
 #footer a {
