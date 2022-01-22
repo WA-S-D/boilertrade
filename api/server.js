@@ -17,5 +17,38 @@ connection.once('open', () => {
     console.log("MongoDB database successfully connected!");  
 });
 
+app.listen(port, () => {
+    console.log("Server running...");
+});
 
-app.listen(port);
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+  
+app.set("view engine", "ejs");
+
+var multer = require('multer');
+  
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+  
+var upload = multer({ storage: storage });
+
+var imgModel = require('./model');
+
+app.get('/', (req, res) => {
+    imgModel.find({}, (err, items) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('An error occurred', err);
+        }
+        else {
+            res.render('imagesPage', { items: items });
+        }
+    });
+});
