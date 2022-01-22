@@ -33,7 +33,7 @@ class Dashboard extends Component {
     return (
       <Grid container justify="center" spacing={4}>
         { this.state.images.map((image) => (
-          <Grid item key={image._id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={image._id} xs={12} sm={6} md={2} lg={4}>
             <Product product={image}></Product>
           </Grid>
         ))}

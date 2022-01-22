@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
+import Dashboard from "./dashboard";
 import Earnings from "./Earnings";
 import Info from "./Info";
 import JoinSlack from "./JoinSlack";
@@ -17,20 +18,9 @@ function MainContent() {
          
           <ColumnTwo1>
             <TitleText>Items</TitleText>
-        
           </ColumnTwo1>
         </SectionOne>
-        <SectionTwo>
-          <ColumnOne2>
-            <InvoiceContainer>
-            
-            </InvoiceContainer>
-          
-          </ColumnOne2>
-          <ColumnTwo2>
-           
-          </ColumnTwo2>
-        </SectionTwo>
+        <Dashboard />
       </SubContainer>
     </Container>
   );
