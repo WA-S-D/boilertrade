@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
+import Dashboards from './components/dashboards';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/dashboards" element={<Dashboards />}/>
       </Routes>
     </Router>
   </React.StrictMode>,

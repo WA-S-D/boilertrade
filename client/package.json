@@ -17,6 +17,8 @@
     "react-google-button": "^0.7.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "recharts": "^2.0.10",
+    "sass": "^1.49.0",
     "smooth-scroll": "^16.1.3",
     "web-vitals": "^2.1.4"
   },
