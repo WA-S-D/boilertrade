@@ -1,69 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
-import useState from 'react-hook-use-state';
-import axios from 'axios';
-import react, { Component } from 'react';
+// import logo from './logo.svg';
+// import './App.css';
 
-class App extends Component {
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
 
-  constructor(props) {
-    super(props);
-      this.state = {
-        selectedFile: null,
-        desc: null,
-        name: null
-      }
-  }
+// export default App;
 
-  onChangeHandler=event=> {
-    this.setState({
-      selectedFile: event.target.files[0],
-      loaded: 0,
-    })
-  }
+import { useState, useEffect } from "react";
+import { Navigation } from "./components/navigation";
+import { Header } from "./components/header";
+import { Features } from "./components/features";
+import { About } from "./components/about";
+import { Services } from "./components/services";
+import { Gallery } from "./components/gallery";
+import { Testimonials } from "./components/testimonials";
+import { Team } from "./components/Team";
+import { Contact } from "./components/contact";
+import JsonData from "./data/data.json";
+import SmoothScroll from "smooth-scroll";
+import "./App.css";
 
-  onClickHandler = () => {
-    const data = new FormData() 
-    data.append('image', this.state.selectedFile)
-    data.append('name', this.state.name)
-    data.append('desc', this.state.desc)
-    axios.post("http://localhost:5000/post", data, { 
-  
-    })
-    .then (res => {
-      console.log(res.statusText)
-    })
-  }
+export const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 1000,
+  speedAsDuration: true,
+});
 
-  render() {
+const App = () => {
+  const [landingPageData, setLandingPageData] = useState({});
+  useEffect(() => {
+    setLandingPageData(JsonData);
+  }, []);
+
   return (
-    <div className="App">
-      <h1>Upload to server</h1>
-      <div>
-        <div>
-            <label for="name">Image Title</label>
-            <input type="test" id="name" placeholder="Name" defaultValue="" name="name" required onChange={(e) => this.setState( { name: e.target.value })}>
+    <div>
+      <Navigation />
+      <Header data={landingPageData.Header} />
 
-            </input>
-          </div>
-          <div>
-            <label for ="desc">Image Description</label>
-            <textarea id="desc" name="desc" defaultValue="" rows="2" placeholder="Description" required onChange={(e) => this.setState( { desc: e.target.value })}>
-
-            </textarea>
-          </div>
-          <div>
-          <label for="image">Upload Image</label>
-          <input type="file" id="image"
-            name="image" value="" required onChange={this.onChangeHandler}></input>
-          </div>
-          <div>
-            <button type="submit" onClick={this.onClickHandler}>Submit</button>
-          </div>
-      </div>
     </div>
   );
-  }
 };
 
 export default App;
