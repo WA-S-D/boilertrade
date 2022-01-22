@@ -1,6 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
@@ -13,7 +13,9 @@ app.use(express.json());
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true } );
 const connection = mongoose.connection;
-mongoose.once('open');
+connection.once('open', () => {
+    console.log("MongoDB database successfully connected!");  
+});
 
 
 app.listen(port);
