@@ -4,14 +4,20 @@ import AvatarImage from "../assets/avatarImage5.jpg";
 
 
 function Navbar() {
+  const logout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.href = "/";
+  }
   return (
     <NavbarContainer>
       <Text>
         Search Boiler Trade
       </Text>
       <Avatar>
-        <img src={AvatarImage} alt="" />
-        <span> logout </span>
+        {/* <img src={AvatarImage} alt="" /> */}
+        <button onClick={() => { logout() }}> logout </button>
+        {/* <span> logout </span> */}
       </Avatar>
       
 

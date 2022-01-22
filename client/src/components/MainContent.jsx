@@ -15,7 +15,6 @@ function MainContent() {
       <Navbar />
       <SubContainer>
         <SectionOne>
-         
           <ColumnTwo1>
             <TitleText>Items</TitleText>
           </ColumnTwo1>

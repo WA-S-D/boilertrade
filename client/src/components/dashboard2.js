@@ -4,6 +4,10 @@ import MainContent from "./MainContent";
 
 
 const Dash = () => {
+    if (!localStorage.getItem('user')) {
+      window.location.href = "/";
+    }
+
     return (
         <Container>
             <Sidebar />

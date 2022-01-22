@@ -33,20 +33,7 @@ const Login = () => {
     }
   }
 
-  const logout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
-
-  if (localStorage.getItem('user')) {
-    return (
-      <>
-      <h1>Logout!</h1>
-      <button onClick={logout}>logout</button>
-      </>
-    )
-  }
+  
 
   return (
     <Container>
