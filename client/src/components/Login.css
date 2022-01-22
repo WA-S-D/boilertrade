@@ -28,7 +28,7 @@ body {
   width: max-content;
   text-align: left;
   position: relative;
-  left: 50px;
+  left: 60px;
 }
 
 .signup-text {
@@ -41,9 +41,8 @@ body {
 }
 
 .button {
-  background-color: white;
   position: relative;
-  left: 60px;
+  left: 80px;
   top: 50px;
 }
 
