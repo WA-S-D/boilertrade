@@ -71,10 +71,10 @@ const Login = () => {
               <Stack gap={1} className="col-md-5 mx-auto">
                 <div className= "welcome-text">Welcome Back!</div>
                 <div className= "signup-text">Login or Sign Up to continue</div>
-                <Button variant="outline-light" className = "button">
+                <Button variant="outline-light" className = "button" onClick={login}>
                   <img src={"./images/google-logo.png"} className = "google"/>
                   <div className="button-text">Sign in with Google</div>
-                  </Button>
+                </Button>
               </Stack>
             </div>
           </Col>
