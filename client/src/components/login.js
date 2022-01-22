@@ -26,9 +26,27 @@ const Login = () => {
         })
     }
   }
+
+  const logout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+
+  if (localStorage.getItem('user')) {
+    return (
+      <>
+      <h1>Logout!</h1>
+      <button
+        onClick={() => logout()}
+      > logout</button>
+      </>
+    )
+  }
+
   return (
     <>
-      <h1>hi</h1>
+      <h1>Login in with Google!</h1>
       <button
         onClick={() => login(googleProvider)}
       > google login</button>
