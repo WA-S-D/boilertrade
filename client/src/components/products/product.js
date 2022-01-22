@@ -2,14 +2,31 @@ import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } fro
 import { AddShoppingCart } from '@material-ui/icons';
 
 import useStyles from './styles';
+import { useState } from 'react';
 
 const Product = ({product}) => {
   const classes = useStyles();
+  
+
+  function toBase64(arr) {
+    arr = new Uint8Array(arr);
+    return btoa(
+      arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+    
+    );
+  }
+  // console.log(product.img.data.data)
+  console.log(toBase64(product.img.data.data));
 
   return (
     <>
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={product.image} title={product.name} />
+      <img src={`data:image/png;base64, ${toBase64(product.img.data.data)}`} 
+        width="400" 
+        height="auto">
+        </img>
+      {/* <CardMedia className={classes.media}  component='img' src={`data:image/png;base64, ${toBase64(product.img.data.data)}`} title={product.name} /> */}
+      {/* <CardMedia className={classes.media} image="data:image/<%=product.img.contentType%>;base64,<%=product.img.data.toString('base64')%>" title={product.name} /> */}
       <CardContent>
         <div className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
