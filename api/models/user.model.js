@@ -8,6 +8,12 @@ const userSchema  = new Schema({
         required: true,
         trim: true,
         unique: true,
+    },
+    instagram: {
+        type: String, 
+        required: true,
+        trim: true, 
+        unique: true
     }
 });
 

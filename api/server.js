@@ -75,10 +75,10 @@ app.post('/test', async function (req, res) {
 })
 
 app.post('/login', async function (req, res) {
-    User.findOne({ email: req.body.user.email })
+    User.findOne({ email: req.body.user.email, instagram: req.body.user.instagram })
     .then(async user => {
         if (!user) {
-            const newUser = new User({ email: req.body.user.email })
+            const newUser = new User({ email: req.body.user.email, instagram: req.body.user.instagram })
             newUser.save()
             .then(user => {
                 res.status(200).json({ token: generateToken(user)})
@@ -103,7 +103,8 @@ app.get('/post', (req, res) => {
             res.status(500).send('An error occurred', err);
         }
         else {
-            res.render('imagesPage', { items: items });
+            res.send(items);
+            //res.render('imagesPage', { items: items });
         }
     });
 });
@@ -112,6 +113,7 @@ app.post('/post', upload.single('image'), (req, res, next) => {
     var obj = {
         name: req.body.name,
         desc: req.body.desc,
+        email: req.body.email,
         img: {
             data: fs.readFileSync(path.join(__dirname + '/image-uploads/' + req.file.filename)),
             contentType: 'image/png'
