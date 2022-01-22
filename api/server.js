@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./models/user.model');
 
+var fs = require('fs');
+var path = require('path');
+
 require('dotenv').config();
 
 const app = express();
