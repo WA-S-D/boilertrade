@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./models/user.model');
 const jwt = require('jsonwebtoken');
+const auth = require('./middleware/auth');
 
 var fs = require('fs');
 var path = require('path');
@@ -75,6 +76,10 @@ app.post('/login', async function (req, res) {
         }
     })
 });
+
+app.post('/secret', auth.isAuthorized, async function (req, res) {
+    res.status(200).json({"you got to the secret!": "welcome"});
+})
 
 app.get('/post', (req, res) => {
     imgModel.find({}, (err, items) => {

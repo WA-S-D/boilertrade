@@ -33,6 +33,15 @@ const Login = () => {
     window.location.reload();
   }
 
+  const secret = () => {
+    axios.post("http://localhost:5000/secret", {token: localStorage.getItem('token')}, {
+      withCredentials: true
+    })
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+
   if (localStorage.getItem('user')) {
     return (
       <>
@@ -40,6 +49,7 @@ const Login = () => {
       <button
         onClick={() => logout()}
       > logout</button>
+      <button onClick={() => secret()}>secret button</button>
       </>
     )
   }
@@ -50,6 +60,7 @@ const Login = () => {
       <button
         onClick={() => login(googleProvider)}
       > google login</button>
+      <button onClick={() => secret()}>secret button</button>
     </>
   )
 }
