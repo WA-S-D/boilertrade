@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./models/user.model');
 
+var fs = require('fs');
+var path = require('path');
+
 require('dotenv').config();
 
 const app = express();
@@ -13,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true } );
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true } );
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database successfully connected!");  
