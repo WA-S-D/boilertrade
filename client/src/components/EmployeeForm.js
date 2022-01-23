@@ -35,20 +35,25 @@ class EmployeeForm extends Component {
         })
           .then(res => {
             console.log(res.statusText)
+            window.location.href = "/dashboard";
           })
-      }
+    }
+
+    cancel = () => {
+        window.location.href = "/dashboard";
+    }
 
     render() {
         return (
 
             <Form>
-                <h1>Upload to server</h1>
+                <h1>Upload Your Product!</h1>
 
                 <Grid container>
                     <Grid item xs={13}>
                         <Controls.Input
                             name="Image Title"
-                            label="Enter Your Item's Name"
+                            label="Enter Your Product's Name"
                             onChange={(e) => this.setState({ name: e.target.value })}
                         />
                         <Controls.Input
@@ -70,6 +75,9 @@ class EmployeeForm extends Component {
                                 type="submit"
                                 text="Submit"
                                 onClick={this.onClickHandler} />
+                            <Controls.Button
+                                text="Cancel"
+                                onClick={this.cancel} />
                         </div>
                     </Grid>
                 </Grid>
