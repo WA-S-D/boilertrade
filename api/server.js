@@ -59,7 +59,7 @@ function generateToken(user) {
     return jwt.sign({ data: user }, process.env.TOCKEN_SECRET || "", { expiresIn: 60 * 60 * 10 })
 }
 
-app.post('/send', async function (req, res) {
+app.post('/send', auth.isAuthorized, async function (req, res) {
     const accountSid = 'AC6b2ee063178041abde43c4828b172b9d'; 
     const authToken = '247ae13671449b9596f8facd8c8715e1'; 
     const client = require('twilio')(accountSid, authToken);
@@ -93,10 +93,6 @@ app.post('/login', async function (req, res) {
         }
     })
 });
-
-app.post('/secret', auth.isAuthorized, async function (req, res) {
-    res.status(200).json({"you got to the secret!": "welcome"});
-})
 
 app.get('/post', (req, res) => {
     imgModel.find({}, (err, items) => {

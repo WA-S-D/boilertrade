@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports.isAuthorized = function(req, res, next) {
-  const token = req.body.token;
+  const token = req.body.user.token;
   if (!token) {
     res.status(403).json({ error: "please log in" });
     return;
