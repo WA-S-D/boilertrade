@@ -3,6 +3,8 @@ import { Grid, } from '@material-ui/core';
 import Controls from '../components/controls/Controls';
 import { useForm, Form } from './controls/use_form';
 import axios from 'axios';
+import './EmployeeForm.css';
+
 
 class EmployeeForm extends Component {
 
@@ -45,7 +47,6 @@ class EmployeeForm extends Component {
 
     render() {
         return (
-
             <Form>
                 <h1>Upload Your Product!</h1>
 
@@ -66,9 +67,9 @@ class EmployeeForm extends Component {
                             label="Ex: pete@purdue.edu"
                             onChange={(e) => this.setState({ email: e.target.value })}
                         /> */}
-                        <br></br>
+                        <br></br>   
                         <input type="file" id="image"
-                            name="image" value="" onChange={this.onChangeHandler}></input>
+                            name="image" value="" onChange={this.onChangeHandler} class="file"></input>
                         <br></br>
                         <div>
                             <Controls.Button
