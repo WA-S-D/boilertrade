@@ -17,8 +17,10 @@ function Sidebar() {
             <a href="/dashboard">Dashboard</a>
           </Link>
           <Link>
-            
             <a href="/yourproduct">Your Product</a>
+          </Link>
+          <Link>
+            <a href="/">Home</a>
           </Link>
         </Links>
         
