@@ -132,3 +132,12 @@ app.post('/post', upload.single('image'), (req, res, next) => {
         }
     });
 });
+
+app.post('/delete', (req, res) => {
+    const images = db.collection("images");
+    images.deleteOne({"_id": new mongoose.Types.ObjectId(req.body.prod.id)})
+        .then(result => {
+            res.status(200).json({"success": "your product is deleted"})
+        })
+        .catch(err => console.error(err))
+})

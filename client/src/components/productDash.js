@@ -1,5 +1,5 @@
 import { Grid } from '@material-ui/core';
-import Product from './products/product';
+import ProductPrivate from './products/productPrivate';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import { Component } from 'react';
@@ -43,7 +43,7 @@ class productDash extends Component {
         <Grid container justify="center" spacing={4}>
           { this.state.yourProducts.map((yourProduct) => (
             <Grid item key={yourProduct._id} xs={12} sm={6} md={2} lg={4}>
-              <Product product={yourProduct}></Product>
+              <ProductPrivate product={yourProduct}></ProductPrivate>
             </Grid>
           ))}
         </Grid>
