@@ -29,6 +29,10 @@ class Dashboard extends Component {
   })
   }
 
+  for (var i = 0; i < images.length; i++) {
+    if (images)
+  }
+
   renderImages() {
     return (
       <div className='scrollable-block'>
