@@ -35,7 +35,7 @@ const Product = ({product}) => {
             {product.email}
           </Typography>
         </div>
-        <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+        <Typography dangerouslySetInnerHTML={{ __html: product.desc }} variant="h6" color="textSecondary" component="p" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton aria-label="Add to Cart" a href = {"mailto:" + product.email}>
