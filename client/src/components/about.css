@@ -1,0 +1,19 @@
+.about-page {
+  text-align: center;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.about-page h1 {
+  color: #705adb;
+  font-size: 75px;
+  font-weight: 700;
+}
+
+.slogan {
+  color: #ac9ef1 !important;
+  margin-top: 60px;
+  font-size: 50px !important;
+  font-weight: 700;
+  margin-bottom: 200px;
+}
