@@ -6,6 +6,7 @@ var imageSchema = new Schema({
     email: String,
     name: String,
     desc: String,
+    phone: String,
     img:
     {
         data: Buffer,
