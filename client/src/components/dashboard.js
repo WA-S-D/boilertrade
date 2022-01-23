@@ -43,7 +43,7 @@ class Dashboard extends Component {
   render () {
     const { images } = this.state;
     return images.length ? this.renderImages() : (
-      <span>Loading Products...</span>
+      <span>Products May Take A While To Load...</span>
     )
   }  
 }

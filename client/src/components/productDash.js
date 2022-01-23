@@ -55,7 +55,7 @@ class productDash extends Component {
   render () {
     const { yourProducts } = this.state;
     return yourProducts.length ? this.renderImages() : (
-      <span>Loading Products...</span>
+      <span>Products May Take A While To Load...</span>
     )
   }  
 }
