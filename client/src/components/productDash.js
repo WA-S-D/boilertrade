@@ -29,9 +29,11 @@ class Dashboard extends Component {
   })
   }
 
-  for (var i = 0; i < images.length; i++) {
-    if (images)
-  }
+  // for (var i = 0; i < images.length; i++) {
+  //   if (!images.email.equals(localStorage.getItem('user'))) {
+
+  //   }
+  // }
 
   renderImages() {
     return (
