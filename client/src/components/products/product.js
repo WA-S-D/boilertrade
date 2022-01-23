@@ -1,5 +1,7 @@
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 import EmailIcon from '@mui/icons-material/Email';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import axios from 'axios';
 
 import useStyles from './styles';
 import '../dashboard.css'
@@ -8,6 +10,20 @@ import { useState } from 'react';
 const Product = ({product}) => {
   const classes = useStyles();
   
+  function like() {    
+    const user = {
+      email: localStorage.getItem('user'),
+      phone: product.phone
+    }
+    console.log(user.phone);
+    axios.post("http://localhost:5000/send", { user }, {
+      withCredentials: true
+    })
+      .then(res => {
+        alert("You like is sent to the seller with Twilio :)");
+        // window.location.reload();
+      })
+  }
 
   function toBase64(arr) {
     arr = new Uint8Array(arr);
@@ -41,6 +57,9 @@ const Product = ({product}) => {
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton aria-label="Email!" a href = {"mailto:" + product.email}>
           <EmailIcon />
+        </IconButton>
+        <IconButton aria-label="Heart" onClick={like}>
+          <FavoriteIcon />
         </IconButton>
       </CardActions>
     </Card>

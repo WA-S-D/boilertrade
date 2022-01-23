@@ -59,16 +59,18 @@ function generateToken(user) {
     return jwt.sign({ data: user }, process.env.TOCKEN_SECRET || "", { expiresIn: 60 * 60 * 10 })
 }
 
-app.post('/test', async function (req, res) {
+app.post('/send', async function (req, res) {
     const accountSid = 'AC6b2ee063178041abde43c4828b172b9d'; 
-    const authToken = 'fa2e804a1ee339036b631cb6d4d2d350'; 
-    const client = require('twilio')(accountSid, authToken); 
-    
+    const authToken = '247ae13671449b9596f8facd8c8715e1'; 
+    const client = require('twilio')(accountSid, authToken);
+
+    const message =  req.body.user.email + " is interested in your product! Send them an email and ask if they want to buy!"
+
     client.messages 
         .create({ 
-            body: 'hi this is cool',  
+            body: message,  
             messagingServiceSid: 'MG63fe7557c7d6c432469b59ab7a42d8b3',      
-            to: req.body.user.number
+            to: req.body.user.phone
         }) 
         .then(message => console.log(message.sid))
         .done();
