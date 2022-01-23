@@ -12,7 +12,8 @@ class EmployeeForm extends Component {
             selectedFile: null,
             desc: null,
             name: null,
-            email: localStorage.getItem('user')
+            email: localStorage.getItem('user'),
+            phone: null
         }
     }
 
@@ -29,6 +30,7 @@ class EmployeeForm extends Component {
         data.append('image', this.state.selectedFile)
         data.append('name', this.state.name)
         data.append('desc', this.state.desc)
+        data.append('phone', this.state.phone)
         data.append('email', this.state.email)
         axios.post("http://localhost:5000/post", data, {
     
@@ -61,18 +63,17 @@ class EmployeeForm extends Component {
                             label="Enter Discription"
                             onChange={(e) => this.setState({ desc: e.target.value })}
                         />
-                        {/* <Controls.Input
-                            name="Email"
-                            label="Ex: pete@purdue.edu"
-                            onChange={(e) => this.setState({ email: e.target.value })}
-                        /> */}
+                        <Controls.Input
+                            name="Phone number"
+                            label="Your phone number: Ex: +13336668888"
+                            onChange={(e) => this.setState({ phone: e.target.value })}
+                        />
                         <br></br>
                         <input type="file" id="image"
                             name="image" value="" onChange={this.onChangeHandler}></input>
                         <br></br>
                         <div>
                             <Controls.Button
-                                type="submit"
                                 text="Submit"
                                 onClick={this.onClickHandler} />
                             <Controls.Button
