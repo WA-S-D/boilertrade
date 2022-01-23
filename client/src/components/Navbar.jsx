@@ -10,6 +10,9 @@ function Navbar() {
     localStorage.removeItem('token');
     window.location.href = "/";
   }
+  const upload = () => {
+    window.location.href = "/upload";
+  }
   return (
     <NavbarContainer>
       <Text>
@@ -17,7 +20,11 @@ function Navbar() {
       </Text>
       <Avatar>
         {/* <img src={AvatarImage} alt="" /> */}
-        <Button onClick={() => { logout() }}> logout </Button>
+        <ButtonContainer>
+          <Button onClick={() => { logout() }}> logout </Button>
+          <Button onClick={() => { upload() }}> Upload Your Product </Button>
+        </ButtonContainer>
+        
         {/* <span> logout </span> */}
       </Avatar>
       
@@ -35,6 +42,12 @@ const NavbarContainer = styled.nav`
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     flex-direction: column;
     margin-bottom: 1rem;
+  }
+`;
+
+const ButtonContainer = styled.nav`
+  Button {
+    margin: 5px;
   }
 `;
 

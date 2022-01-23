@@ -16,9 +16,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/upload" element={<UploadFile />}/>
-        <Route path="/dash" element={<Dash />}/>
-        <Route path="/uploadNew" element={<Employee />}/>
+        {/* <Route path="/upload" element={<UploadFile />}/> */}
+        <Route path="/upload" element={<Employee />}/>
         <Route path="/dashboard" element={<Dash />}/>
         <Route path="/yourproduct" element={<Yourproduct />}/>
 
