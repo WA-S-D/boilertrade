@@ -1,5 +1,5 @@
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
-import { AddShoppingCart } from '@material-ui/icons';
+import EmailIcon from '@mui/icons-material/Email';
 
 import useStyles from './styles';
 import '../dashboard.css'
@@ -39,8 +39,8 @@ const Product = ({product}) => {
         <Typography dangerouslySetInnerHTML={{ __html: product.email }} variant="h6" color="textSecondary" component="p" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart" a href = {"mailto:" + product.email}>
-          <AddShoppingCart />
+        <IconButton aria-label="Email!" a href = {"mailto:" + product.email}>
+          <EmailIcon />
         </IconButton>
       </CardActions>
     </Card>
