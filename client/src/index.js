@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import UploadFile from './components/UploadFile';
 import Yourproduct from './components/yourproduct';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Employee from './components/Employee';
 import Dash from "./components/dashboard2";
 
 ReactDOM.render(
@@ -17,8 +17,11 @@ ReactDOM.render(
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/upload" element={<UploadFile />}/>
+        <Route path="/dash" element={<Dash />}/>
+        <Route path="/uploadNew" element={<Employee />}/>
         <Route path="/dashboard" element={<Dash />}/>
         <Route path="/yourproduct" element={<Yourproduct />}/>
+
       </Routes>
     </Router>
   </React.StrictMode>,
