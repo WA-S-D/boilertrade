@@ -27,7 +27,7 @@ const Login = () => {
         .then(res => {
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', user.email);
-          window.location.href = "/dash";
+          window.location.href = "/dashboard";
           // window.location.reload();
         })
     }

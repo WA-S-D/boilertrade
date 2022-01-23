@@ -14,16 +14,15 @@ function Sidebar() {
       <LinksContainer>
         <Links>
           <Link>
-           
-            <h3>Search</h3>
+            <a href="/dashboard">Dashboard</a>
           </Link>
           <Link>
             
-            <h3>Trade</h3>
+            <a href="/yourproduct">Your Product</a>
           </Link>
           <Link>
             
-            <h3>Messages</h3>
+            <a>Messages</a>
           </Link>
         </Links>
         
@@ -87,10 +86,12 @@ const Link = styled.li`
   margin-bottom: 2rem;
   display: flex;
   gap: 1rem;
-  color: #707070;
+  color: #FFFFFF !important;
   cursor: pointer;
-  h3 {
-    font-weight: 300;
+  a {
+    font-size: 20px;
+    color: #FFFFFF !important;
+    font-weight: 600;
   }
   svg {
     font-size: 1.1rem;

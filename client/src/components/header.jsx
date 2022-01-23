@@ -39,7 +39,7 @@ export const Header = (props) => {
                 </h1>
                 <p>{props.data ? props.data.paragraph : 'Loading'}</p>
                 <a
-                  href='/dash'
+                  href='/dashboard'
                   className='btn btn-custom btn-lg page-scroll'
                 >
                   Go To DashBoard

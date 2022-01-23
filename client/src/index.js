@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
 import reportWebVitals from './reportWebVitals';
+import Yourproduct from "./components/yourproduct/yourproduct";
 import UploadFile from './components/UploadFile';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,9 +16,9 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/upload" element={<UploadFile />}/>
-        <Route path="/dash" element={<Dash />}/>
+        <Route path="/dashboard" element={<Dash />}/>
+        {/* <Route path="/yourproduct" element={<Yourproduct />}/> */}
       </Routes>
     </Router>
   </React.StrictMode>,
