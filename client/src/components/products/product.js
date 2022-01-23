@@ -10,10 +10,11 @@ import { useState } from 'react';
 const Product = ({product}) => {
   const classes = useStyles();
   
-  function like() {    
+  function like() {  
     const user = {
       email: localStorage.getItem('user'),
-      phone: product.phone
+      phone: product.phone,
+      token: localStorage.getItem('token')
     }
     alert("Your like is sent to the seller with Twilio :)");
     axios.post("http://localhost:5000/send", { user }, {
