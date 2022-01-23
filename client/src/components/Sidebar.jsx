@@ -20,10 +20,6 @@ function Sidebar() {
             
             <a href="/yourproduct">Your Product</a>
           </Link>
-          <Link>
-            
-            <a>Messages</a>
-          </Link>
         </Links>
         
       </LinksContainer>

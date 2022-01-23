@@ -29,7 +29,7 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li>
-              <a href='/login' className='page-scroll'>
+              <a href='/dashboard' className='page-scroll'>
               {localStorage.getItem('user')}
               </a>
             </li>
