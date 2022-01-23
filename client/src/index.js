@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
 import reportWebVitals from './reportWebVitals';
 import UploadFile from './components/UploadFile';
+import Yourproduct from './components/yourproduct';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Employee from './components/Employee';
 import Dash from "./components/dashboard2";
@@ -16,10 +16,12 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/upload" element={<UploadFile />}/>
         <Route path="/dash" element={<Dash />}/>
         <Route path="/uploadNew" element={<Employee />}/>
+        <Route path="/dashboard" element={<Dash />}/>
+        <Route path="/yourproduct" element={<Yourproduct />}/>
+
       </Routes>
     </Router>
   </React.StrictMode>,

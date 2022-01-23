@@ -2,6 +2,7 @@ import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } fro
 import { AddShoppingCart } from '@material-ui/icons';
 
 import useStyles from './styles';
+import '../dashboard.css'
 import { useState } from 'react';
 
 const Product = ({product}) => {
@@ -21,9 +22,7 @@ const Product = ({product}) => {
   return (
     <>
     <Card className={classes.root}>
-      <img src={`data:image/png;base64, ${toBase64(product.img.data.data)}`} 
-        width="400" 
-        height="auto">
+      <img src={`data:image/png;base64, ${toBase64(product.img.data.data)}`} className='product-item'>
         </img>
       {/* <CardMedia className={classes.media}  component='img' src={`data:image/png;base64, ${toBase64(product.img.data.data)}`} title={product.name} /> */}
       {/* <CardMedia className={classes.media} image="data:image/<%=product.img.contentType%>;base64,<%=product.img.data.toString('base64')%>" title={product.name} /> */}
@@ -39,7 +38,7 @@ const Product = ({product}) => {
         <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart">
+        <IconButton aria-label="Add to Cart" a href = {"mailto:" + product.email}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>

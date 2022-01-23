@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Button} from "react-bootstrap";
 import AvatarImage from "../assets/avatarImage5.jpg";
 
 
@@ -16,7 +17,7 @@ function Navbar() {
       </Text>
       <Avatar>
         {/* <img src={AvatarImage} alt="" /> */}
-        <button onClick={() => { logout() }}> logout </button>
+        <Button onClick={() => { logout() }}> logout </Button>
         {/* <span> logout </span> */}
       </Avatar>
       
