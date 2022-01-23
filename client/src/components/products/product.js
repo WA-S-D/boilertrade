@@ -15,12 +15,11 @@ const Product = ({product}) => {
       email: localStorage.getItem('user'),
       phone: product.phone
     }
-    console.log(user.phone);
+    alert("Your like is sent to the seller with Twilio :)");
     axios.post("http://localhost:5000/send", { user }, {
       withCredentials: true
     })
       .then(res => {
-        alert("You like is sent to the seller with Twilio :)");
         // window.location.reload();
       })
   }
