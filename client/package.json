@@ -19,6 +19,7 @@
     "react-google-button": "^0.7.2",
     "react-hook-use-state": "^1.1.0",
     "react-icons": "^4.2.0",
+    "react-loading": "^2.0.3",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "smooth-scroll": "^16.1.3",
