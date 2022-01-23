@@ -12,7 +12,7 @@ class EmployeeForm extends Component {
             selectedFile: null,
             desc: null,
             name: null,
-            email: null
+            email: localStorage.getItem('user')
         }
     }
 
@@ -48,19 +48,19 @@ class EmployeeForm extends Component {
                     <Grid item xs={13}>
                         <Controls.Input
                             name="Image Title"
-                            label="Ex: Image1"
+                            label="Enter Your Item's Name"
                             onChange={(e) => this.setState({ name: e.target.value })}
                         />
                         <Controls.Input
                             name="Image description"
-                            label="Ex: Beautiful"
+                            label="Enter Discription"
                             onChange={(e) => this.setState({ desc: e.target.value })}
                         />
-                        <Controls.Input
+                        {/* <Controls.Input
                             name="Email"
                             label="Ex: pete@purdue.edu"
                             onChange={(e) => this.setState({ email: e.target.value })}
-                        />
+                        /> */}
                         <br></br>
                         <input type="file" id="image"
                             name="image" value="" onChange={this.onChangeHandler}></input>
