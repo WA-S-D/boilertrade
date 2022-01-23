@@ -11,7 +11,8 @@ class EmployeeForm extends Component {
         this.state = {
             selectedFile: null,
             desc: null,
-            name: null
+            name: null,
+            email: null
         }
     }
 
@@ -22,25 +23,13 @@ class EmployeeForm extends Component {
         })
       }
 
-    handleSubmit() {
-        console.log("hi")
-        //e.preventDefault()
-        // if (validate()){
-        //     employeeService.insertEmployee(values)
-        //     resetForm()
-        // }
-    }
-
-    resetForm() {
-        this.setState({ name: "" });
-        this.setState({ desc: "" });
-    }
 
     onClickHandler = () => {
         const data = new FormData()
         data.append('image', this.state.selectedFile)
         data.append('name', this.state.name)
         data.append('desc', this.state.desc)
+        data.append('email', this.state.email)
         axios.post("http://localhost:5000/post", data, {
     
         })
@@ -52,7 +41,7 @@ class EmployeeForm extends Component {
     render() {
         return (
 
-            <Form onSubmit={this.handleSubmit}>
+            <Form>
                 <h1>Upload to server</h1>
 
                 <Grid container>
@@ -63,20 +52,24 @@ class EmployeeForm extends Component {
                             onChange={(e) => this.setState({ name: e.target.value })}
                         />
                         <Controls.Input
-                            label="Image description"
-                            name="Ex: Beautiful"
-                            //    value={values.email}
+                            name="Image description"
+                            label="Ex: Beautiful"
                             onChange={(e) => this.setState({ desc: e.target.value })}
-                        // error={errors.fullName}
+                        />
+                        <Controls.Input
+                            name="Email"
+                            label="Ex: pete@purdue.edu"
+                            onChange={(e) => this.setState({ email: e.target.value })}
                         />
                         <br></br>
                         <input type="file" id="image"
-                            name="image" value="" required onChange={this.onChangeHandler}></input>
+                            name="image" value="" onChange={this.onChangeHandler}></input>
                         <br></br>
                         <div>
                             <Controls.Button
                                 type="submit"
-                                text="Submit" />
+                                text="Submit"
+                                onClick={this.onClickHandler} />
                         </div>
                     </Grid>
                 </Grid>
